@@ -5,7 +5,8 @@ use serenity::http::Http;
 use std::{collections::{HashMap, HashSet}, env, sync::Arc};
 
 use shinobot::{CommandCounter, ShardManagerContainer, hooks::{before, after, normal_message, unknown_command, dispatch_error}};
-use shinobot::{MY_HELP, GENERAL_GROUP, EMOJI_GROUP, MATH_GROUP, OWNER_GROUP, Handler};
+use shinobot::{MY_HELP, Handler};
+use shinobot::groups::{GENERAL_GROUP, EMOJI_GROUP, MATH_GROUP, OWNER_GROUP};
 
 #[tokio::main]
 async fn main() {
