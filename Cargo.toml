@@ -1,0 +1,16 @@
+[package]
+name = "shinobot"
+version = "0.1.0"
+authors = ["qw3rty01 <qw3rty01@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+dotenv = "0.15.0"
+
+[dependencies.serenity]
+version = "0.9"
+features = ["framework", "standard_framework", "rustls_backend"]
+
+[dependencies.tokio]
+version = "0.2"
+features = ["macros"]
