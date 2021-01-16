@@ -7,10 +7,13 @@ edition = "2018"
 [dependencies]
 dotenv = "0.15.0"
 
+[dependencies.rcir]
+git = "https://github.com/qwerty01/rcir.git"
+branch = "main"
+
 [dependencies.serenity]
-version = "0.9"
-features = ["framework", "standard_framework", "rustls_backend"]
+version = "0.10"
 
 [dependencies.tokio]
-version = "0.2"
-features = ["macros"]
+version = "1.0"
+features = ["macros", "rt-multi-thread"]

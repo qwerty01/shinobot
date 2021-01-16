@@ -2,7 +2,7 @@ use serenity::framework::standard::macros::group;
 use crate::commands::*;
 
 #[group]
-#[commands(about, am_i_admin, say, commands, ping, latency, some_long_command, upper_command)]
+#[commands(about, am_i_admin, say, commands, ping, latency, some_long_command, upper_command, rc)]
 pub struct General;
 
 #[group]

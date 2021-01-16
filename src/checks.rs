@@ -1,4 +1,7 @@
-use serenity::{client::Context, framework::standard::{Args, CheckResult, CommandOptions, macros::check}, model::channel::Message};
+use serenity::client::Context;
+use serenity::framework::standard::{Args, Reason, CommandOptions};
+use serenity::framework::standard::macros::check;
+use serenity::model::channel::Message;
 
 // A function which acts as a "check", to determine whether to call a command.
 //
@@ -7,7 +10,7 @@ use serenity::{client::Context, framework::standard::{Args, CheckResult, Command
 // not called.
 #[check]
 #[name = "Owner"]
-pub async fn owner_check(_: &Context, msg: &Message, _: &mut Args, _: &CommandOptions) -> CheckResult {
+pub async fn owner_check(_: &Context, msg: &Message, _: &mut Args, _: &CommandOptions) -> Result<(), Reason> {
     // Replace 7 with your ID to make this check pass.
     //
     // `true` will convert into `CheckResult::Success`,
@@ -22,5 +25,9 @@ pub async fn owner_check(_: &Context, msg: &Message, _: &mut Args, _: &CommandOp
     //
     // and if the check's failure origin is unknown you can mark it as such (same as using `false.into`):
     // `CheckResult::new_unknown()`
-    (msg.author.id == 165987589482872832).into()
+    if msg.author.id == 165987589482872832 {
+        Err(Reason::User("Lacked owner permission".to_string()))
+    } else {
+        Ok(())
+    }
 }

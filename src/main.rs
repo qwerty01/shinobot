@@ -13,7 +13,7 @@ async fn main() {
     dotenv().unwrap();
     // Configure the client with your Discord bot token in the environment.
     let token = env::var("DISCORD_TOKEN").expect(
-        "Expected a token in the environment",
+        "Missing `DISCORD_TOKEN` in .env",
     );
     
     validate_token(&token).expect("Discord token is invalid");
