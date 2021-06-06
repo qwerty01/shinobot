@@ -13,6 +13,7 @@ pub use help::*;
 use crate::ShardManagerContainer;
 
 #[command]
+#[delimiters("; ", ";")]
 pub async fn rc(ctx: &Context, msg: &Message, mut args: Args) -> CommandResult {
     let settings = if let Some(guild_id) = msg.guild_id {
        // By default roles, users, and channel mentions are cleaned.
@@ -36,7 +37,7 @@ pub async fn rc(ctx: &Context, msg: &Message, mut args: Args) -> CommandResult {
         message.push_str(&format!("{:?}\n", m));
     }
     
-    msg.channel_id.say(&ctx.http, &message).await?;
+    msg.reply(&ctx.http, &message).await?;
 
     Ok(())
 }
